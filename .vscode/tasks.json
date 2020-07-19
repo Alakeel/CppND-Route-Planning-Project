@@ -1,0 +1,41 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "type": "shell",
+      "label": "cmake",
+      "command": "cmake \"MinGW Makefiles\"  ${workspaceRoot}",
+      "options": {
+        "cwd": "${workspaceRoot}/build"
+      }
+    },
+    {
+      "type": "shell",
+      "label": "make",
+      "command": "make",
+      "args": ["&&" , "${workspaceRoot}/build/test"],
+      "options": {
+        "cwd": "${workspaceRoot}/build"
+      },
+      "problemMatcher": [],
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      }
+    },
+        {
+      "type": "shell",
+      "label": "make run",
+      "command": "make",
+      "args": ["&&" , "${workspaceRoot}/build/OSM_A_star_search"],
+      "options": {
+        "cwd": "${workspaceRoot}/build"
+      },
+      "problemMatcher": [],
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      }
+    }
+  ]
+}

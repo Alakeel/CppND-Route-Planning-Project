@@ -8,14 +8,14 @@
 
 
 static std::optional<std::vector<std::byte>> ReadFile(const std::string &path)
-{   
+{
     std::ifstream is{path, std::ios::binary | std::ios::ate};
     if( !is )
         return std::nullopt;
-    
+
     auto size = is.tellg();
-    std::vector<std::byte> contents(size);    
-    
+    std::vector<std::byte> contents(size);
+
     is.seekg(0);
     is.read((char*)contents.data(), size);
 
@@ -45,7 +45,7 @@ class RoutePlannerTest : public ::testing::Test {
     std::vector<std::byte> osm_data = ReadOSMData(osm_data_file);
     RouteModel model{osm_data};
     RoutePlanner route_planner{model, 10, 10, 90, 90};
-    
+
     // Construct start_node and end_node as in the model.
     float start_x = 0.1;
     float start_y = 0.1;
